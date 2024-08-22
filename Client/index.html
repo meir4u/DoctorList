@@ -72,10 +72,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     <script>
+        var getAllDoctorsListApiUrl = 'https://localhost:7073/api/Doctor/all';
+        var sendContactUsApiUrl = 'https://localhost:7073/api/ContactUs/Send/';
+
         async function fetchDoctors() {
             try {
                 // Make the GET request to the API
-                const response = await fetch('https://localhost:7073/api/Doctor/all');
+                const response = await fetch(getAllDoctorsListApiUrl);
 
                 // Check if the response is successful
                 if (!response.ok) {
@@ -141,7 +144,7 @@
 
                 try {
                     // Send the POST request
-                    const response = await fetch('https://localhost:7073/api/ContactUs/Send/', {
+                    const response = await fetch(sendContactUsApiUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
